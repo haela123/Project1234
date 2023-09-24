@@ -1,92 +1,188 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
- <style>
-     *{
-         background-color: LightBlue;
-     }
- </style>  
-   
-  <title>Profile</title>
-     
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> MY PROFILE</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family:'Times New Roman';
+            
+        }
+
+        body {
+            background-color:white;
+            
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(5, 20vw);
+            grid-template-rows: repeat(5, 20vh);
+            gap: 2px;
+        }
+        
+        .profile-picture {
+            href="haikyu.jpg"
+            img src="data:image/jpeg;base64,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"
+        }
+
+        .div1 {
+            background-color: Green;
+         
+        }
+
+        .div2 {
+            background-color: yellow;
+            
+        }
+
+        .div3 {
+            background-color:grey;
+        }
+
+        .div4 {
+            background-color: pink;
+        }
+
+        .div5 {
+            background-color: Brown  ;
+        }<!--  -->
+
+        /* media query */
+        /* Extra small devices (phones, 600px and down) */
+        @media only screen and (max-width: 600px) {
+            .div1{
+                grid-column: 1/6;
+                grid-row: 1/2;
+            }
+            .div2{
+                grid-column: 1/6;
+                grid-row: 2/5;
+            }
+            .div3{
+                grid-row: 2/3;
+                grid-column: 1/6;
+            }
+            .div4{
+                grid-column: 1/6;
+                grid-row: 3/4;
+            }
+            .div5{
+                grid-column: 1/6;
+                grid-row: 4/5;
+            }
+            
+        }
+
+        /* Small devices (portrait tablets and large phones, 600px and up) */
+        @media only screen and (min-width: 600px) {
+            .div1{
+                grid-column: 1/6;
+                grid-row: 1/1;
+            }
+            .div2{
+                grid-column: 1/5;
+                grid-row: 2/4;
+            }
+            .div3{
+                grid-row: 2/3;
+                grid-column: 3/6;
+            }
+            .div4{
+                grid-column: 1/3;
+                grid-row: 3/6;
+            }
+              .div5{
+                grid-column: 3/6;
+                grid-row: 3/6;
+            }
+        }
+
+        /* Large devices (laptops/desktops, 992px and up) */
+        @media only screen and (min-width: 992px) {
+            .div1{
+            background-color: green;
+            grid-column: 1/6;
+        }
+
+        .div2{
+            background-color: red;
+            grid-row: 1/5;
+            grid-column: 1/5;
+            z-index: 1;
+        }
+
+        .div3{
+            background-color:rgb(169, 84, 84);
+            grid-row: 2/5;
+            grid-column: 2/5;
+        }
+        
+        .div4{
+            background-color: blue;
+            grid-row: 2/5;
+            grid-column: 5/6;
+         }
+         .div5{
+            background-color: orange;
+            grid-column: 1/6;
+            grid-row: 5/6;
+        }
+          
+        }
+       
+    </style>
 </head>
+
 <body>
-  <h1> Profile</h1>
-  <img src="mikay.jpg" alt="Profile Picture" width="100px" height="100px";>
-   <style>
-          h1{    
-                 background-color:Pink;
-                 color: Grey;
-                 font-family:'Times New Roman';
-                 font-size:50px;
-                 text-align: center;
-             }
-                                    
-  </style>
-
-  
- <!-- first --> 
-  <h2><i>Personal Information</i></h2>
-  <style>
-      h2{
+    <div class="container">
+        <div class="div1"><i>PROFILE</i></div>
+         <br>
         
-          font-family:'Times New Roman';
-          font-size:25px;
-          color:Black;
-          text-align:center;
-      }    
-  </style>
-  <p><strong>Name:</strong> Michaela A. Villacampa</p>
-    <p><strong>Course Year & Section :</strong>BSIT 3B</p>
-    <p><strong>Birthday:</strong>October 15, 2002</p>
-  <p><strong>Age:</strong>20</p>
-  <p><strong>Civil Status:</strong>Single</p>
-    <p><strong>Religion:</strong> Roman Catholic </p>
-  <p><strong>Address:</strong>Brgy. Tapi, Kabankalan City</p>
-  <p><strong>Contact Number:</strong>09274007091</p>
- <br>
-  <!--last -->
- 
+<div class="div2"> <h1><i> Personal Information</i></h1>         
+ <p><strong> Name:</strong> Michaela A. Villacampa</p>
+   <p><strong> Course Year & Section :</strong> BSIT 3B</p>
+    <p><strong> Birthday:</strong> October 15, 2002</p>
+  <p><strong> Age:</strong> 20 years old</p>
+  <p><strong> Civil Status:</strong> Single</p>
+  <p><strong> Sex:</strong> Female</p>
+    <p><strong> Religion:</strong> Roman Catholic </p>
+  <p><strong> Address:</strong> Brgy. Tapi, Kabankalan City</p>
+  <p><strong> Contact Number:</strong>09274007091</p>
+  
+  <br>
+  
+   <div class="div3"><h2> Other Information </h2>
+       
+ <p><strong>Mother's Name:</strong> Leonila R. Abuela</p>
+  <p><strong>Father's Name:</strong> Michael B. Villacampa</p>
+  
+ <p><strong>Email:</strong>
+  mikaylamikay1234@gmail.com</p> 
   
-<!-- first -->
-  <h3><i>Other</i></i> <i>Information</i></h3>
-  <style>
-      h3{
-          font-family:'Times New Roman';
-          font-size:25px;
-          color:Black;
-          text-align:center;
-      }
-  </style>
-  
-  <p><strong>Mother's Name:</strong> Leonila R. Abuela</p>
-   <p><strong>Father's Name:</strong> Michael B. Villacampa</p> <p><strong>Email:</strong> mikaylamikay1234@gmail.com</p> 
-   <p><strong>Hobby:</strong> Sleeping and Eating</p>
- <p><strong>Skill:</strong> Documentation</p>
+  <p><strong>Hobby:</strong> Sleeping and Eating</p>
+ <p><strong>Skill:</strong> Documentation</p></div>
+
 <br>
-<!-- last -->
 
+   <div class="div4"><p><h3>Educational Background</h3>
+    <p><strong>Elementary Level:</s detrong>Barras Diutay Elementary School(2009-2015)</p>
 
-  <!-- first-->
-   <h4><i>Educational</i></i> <i>Background</i></h4>
-   <style>
-       h4{
-           font-family:'Times New Roman';
-          font-size:25px;
-          color:Black;
-          text-align:center;
-       }
-   </style>
-   <p><strong>Elementary Level:</strong>Barras Diutay Elementary School</p>
-    <p><strong>Secondary Level:</strong>Tapi National High School</p>
-     <p><strong> College:</strong>Central Philippines State University </p>
-     
-    
-<!-- last -->    
-   
+    <p><strong>Secondary Level:</strong>Tapi National High School(2015-2021)</p>
+
+     <p><strong> College:</strong>Central Philippines State University (2021-Present) </p></div>
+     
+     <div class="div5"><p><h4>Objective</h4>
+      While I'm practicing my coding skills, I want to make a great profiling of myself.</div>
+       
+    </div>             
         
-  
-  
-  </ul>
 </body>
+
 </html>
+
+
